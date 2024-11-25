@@ -50,4 +50,4 @@ echo "Binding account with ID: $IDENTIFICATION and PIN: $PIN..."
 multiple-cli bind --bandwidth-download 100 --identifier $IDENTIFICATION --pin $PIN --storage 200 --bandwidth-upload 100
 
 echo "Installation complete!
-echo  "Come Join with Us : https://t.me/CryptoNodeID"
+echo  "Come Join with us: https://t.me/CryptoNodeID"
