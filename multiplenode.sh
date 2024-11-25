@@ -49,5 +49,4 @@ read -p "Set your PIN: " PIN
 echo "Binding account with ID: $IDENTIFICATION and PIN: $PIN..."
 multiple-cli bind --bandwidth-download 100 --identifier $IDENTIFICATION --pin $PIN --storage 200 --bandwidth-upload 100
 
-echo "Installation complete!
-echo "Join us: https://t.me/CryptoNodeID"
+echo "Installation complete! Join us: https://t.me/CryptoNodeID"
