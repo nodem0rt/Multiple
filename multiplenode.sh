@@ -14,18 +14,26 @@ fi
 
 # Step 1: Update & Download the tar file
 sudo apt update && sudo apt upgrade -y
-echo "Downloading Multiple for Linux..."
-curl -L "$URL" -o multipleforlinux.tar
-if [ $? -ne 0 ]; then
-    echo "Error: Failed to download the file. Please check the URL."
+
+echo "Checking system architecture..."
+
+ARCH=$(uname -m)
+if [[ "$ARCH" == "x86_64" ]]; then
+    CLIENT_URL="https://cdn.app.multiple.cc/client/linux/x64/multipleforlinux.tar"
+elif [[ "$ARCH" == "aarch64" ]]; then
+    CLIENT_URL="https://cdn.app.multiple.cc/client/linux/arm64/multipleforlinux.tar"
+else
+    echo "Unsupported system architecture: $ARCH"
     exit 1
 fi
-echo "Download complete."
 
-# Step 2: Extract the tar file
+echo "Downloading the client from $CLIENT_URL..."
+wget $CLIENT_URL -O multipleforlinux.tar
+
 echo "Extracting files..."
 tar -xvf multipleforlinux.tar
 
+# Step 2: Extract the tar file
 cd multipleforlinux
 
 echo "Granting permissions..."
@@ -51,4 +59,4 @@ echo "Binding account with ID: $IDENTIFICATIONCODE and PIN: $PIN..."
 multiple-cli bind --bandwidth-download 100 --identifier $IDENTIFICATIONCODE --pin $PIN --storage 200 --bandwidth-upload 100
 
 # Final message
-echo "Installation complete! You can run the application - Subscribe: https://t.me/CryptoNodeID."
+echo "Installation complete! Don't Forget to Join with Us : https://t.me/CryptoNodeID."
