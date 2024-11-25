@@ -43,12 +43,12 @@ chmod -R 777 $(pwd)
 echo "Launching multiple-node..."
 nohup ./multiple-node > output.log 2>&1 &
 
-echo "Please enter your Account ID and PIN to bind your account:"
-read -p "Account ID: " IDENTIFIER
+echo "Please enter your Identification Code and Create New PIN to bind your account:"
+read -p "Identification Code: " IDENTIFICATION CODE
 read -p "Set your PIN: " PIN
 
-echo "Binding account with ID: $IDENTIFIER and PIN: $PIN..."
-multiple-cli bind --bandwidth-download 100 --identifier $IDENTIFIER --pin $PIN --storage 200 --bandwidth-upload 100
+echo "Binding account with ID: $IDENTIFICATIONCODE and PIN: $PIN..."
+multiple-cli bind --bandwidth-download 100 --identifier $IDENTIFICATIONCODE --pin $PIN --storage 200 --bandwidth-upload 100
 
 # Final message
 echo "Installation complete! You can run the application - Subscribe: https://t.me/CryptoNodeID."
